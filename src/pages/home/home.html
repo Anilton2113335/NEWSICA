@@ -1,0 +1,47 @@
+<ion-header>		
+  <ion-navbar color="royal">
+     <ion-grid>
+          <ion-row>
+              <ion-col>
+                <button ion-button icon-only color="royal">
+                  <ion-icon name="menu"></ion-icon>
+                  <h3 style="color: #FFFFFF; margin-top: 10px; text-align: left">newsica</h3>
+                </button>
+                  
+              </ion-col>
+              <ion-col>
+      <ion-buttons end>
+        <button ion-button icon-only style ="margin-top: 10px">
+          <ion-icon name='more'></ion-icon>
+        </button>
+      </ion-buttons>
+              </ion-col>
+              </ion-row>
+    </ion-grid>
+  </ion-navbar>
+</ion-header>
+
+<ion-content color="royal"> 
+  <ion-searchbar style="background-color: #844AE7" placeholder="Looking for.." (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list color="royal">
+    <ion-item (click)="buttonTapped(item)" text-left *ngFor= "let item of items; let $index = index" color="{{items[$index] | lowercase}}">
+      <ion-grid>
+          <ion-row>
+               <ion-col>
+      <ion-thumbnail item-start style="margin-top: 10px;">
+        <img src="{{icons[$index]}}" style="height:70px; width:70px;">
+      </ion-thumbnail>
+               </ion-col>
+               <ion-col>
+      <h3 style="text-align: left; margin-top: 20px; font-size: 19px; font-style: bold; margin-left: -40px">{{item | uppercase}}</h3>
+               </ion-col>
+          </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-navbar color="royal">
+  </ion-navbar>
+</ion-footer>

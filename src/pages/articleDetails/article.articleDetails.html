@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar color="{{xcolor | lowercase}}">
+    <ion-title>{{name | uppercase}}</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only *ngIf="!alreadybooked">
+        <ion-icon name="bookmark"></ion-icon>
+      </button>
+      <button ion-button icon-only  *ngIf="alreadybooked">
+        <ion-icon name="bookmark" style="color:red"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-item>
+      <h3 style="white-space: normal;"><b>{{item.title}}</b></h3>
+      <p>{{item.publishedAt}}</p>
+    </ion-item>
+    <img src="{{item.urlToImage}}">
+    <ion-card-content>
+      <p>{{item.description}}</p>
+
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small (click)="openArticle(item.url,item.title,name,xcolor)">
+          <ion-icon name="open"></ion-icon>
+          <div id="openArticle">Read More ...</div>
+        </button>
+      </ion-col>
+      <ion-col>
+            <div>
+                <ion-fab bottom right>
+                  <button ion-fab class="pop-in" color="danger">Share</button>
+                  <ion-fab-list side="left">
+                    <button ion-fab color="primary">
+                      <ion-icon name="logo-facebook"></ion-icon>
+                    </button>
+                    <button ion-fab color="primary">
+                      <ion-icon name="logo-twitter"></ion-icon>
+                    </button>
+                  </ion-fab-list>
+                </ion-fab>
+            </div>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>
+<ion-footer>
+   <ion-navbar color="{{xcolor | lowercase}}">
+   </ion-navbar>
+</ion-footer>
